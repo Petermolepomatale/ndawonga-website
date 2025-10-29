@@ -1460,19 +1460,24 @@ body {
 
 .client-logo {
     flex: 0 0 auto;
-    width: 200px;
+    width: 250px;
     margin: 0 20px;
 }
 
 .logo-container {
     background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
+    padding: 40px 25px;
     border-radius: var(--border-radius);
     text-align: center;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
     position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-container:hover {
@@ -1481,8 +1486,8 @@ body {
 }
 
 .client-logo-img {
-    width: 120px;
-    height: 80px;
+    width: 180px;
+    height: 120px;
     object-fit: contain;
     margin: 0 auto 15px;
     border-radius: 8px;
