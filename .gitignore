@@ -1,0 +1,68 @@
+# Ndawonga Website - Git Ignore File
+
+# Database Configuration (for security)
+# config.php
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PHP specific
+*.cache
+vendor/
+composer.lock
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Test files (keep the main test files but ignore temporary ones)
+test_*.tmp
+temp_*.php
+
+# Upload directories (if any)
+uploads/
+temp_uploads/
+
+# Session files
+sessions/
+
+# Error logs
+error.log
+php_errors.log
+
+# Development tools
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Compiled assets (if using build tools)
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Cache directories
+cache/
+tmp/

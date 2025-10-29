@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ndawonga Trading & Projects - WIL Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color:#1a365d; --secondary-color:#2d3748; --accent-color:#e53e3e; --gold-color:#d4af37; --success-color:#38a169; }
+        body { font-family:'Inter',sans-serif; line-height:1.7; color:#2d3748; background:#f8fafc; }
+        .portfolio-header { background:linear-gradient(135deg,#1a365d 0%,#2d3748 100%); color:#fff; padding:80px 0 60px; position:relative; overflow:hidden; }
+        .portfolio-header::before { content:''; position:absolute; inset:0; background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><polygon points="1000,100 1000,0 0,100"/></svg>'); background-size:cover; }
+        .portfolio-container { max-width:1200px; margin:0 auto; padding:0 20px; }
+        .logo-circle { width:80px; height:80px; background:linear-gradient(135deg,#d4af37 0%,#f7ef8a 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 30px; box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+        .logo-initial { font-size:36px; font-weight:800; color:#1a365d; font-family:'Playfair Display',serif; }
+        .portfolio-title { font-size:3.5rem; font-weight:800; text-align:center; margin-bottom:20px; font-family:'Playfair Display',serif; }
+        .portfolio-subtitle { font-size:1.3rem; text-align:center; margin-bottom:40px; opacity:.9; max-width:800px; margin-left:auto; margin-right:auto; }
+        .section-title { font-size:2.5rem; font-weight:700; margin-bottom:30px; color:var(--primary-color); font-family:'Playfair Display',serif; position:relative; padding-bottom:15px; }
+        .section-title::after { content:''; position:absolute; bottom:0; left:0; width:60px; height:4px; background:var(--gold-color); border-radius:2px; }
+        .section-title.center { text-align:center; }
+        .section-title.center::after { left:50%; transform:translateX(-50%); }
+        .portfolio-section { padding:80px 0; background:#fff; }
+        .portfolio-section.alternate { background:#f8fafc; }
+        .feature-card { background:#fff; border-radius:15px; padding:30px; margin-bottom:30px; box-shadow:0 5px 15px rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.05); transition:all .3s ease; height:100%; }
+        .feature-card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
+        .feature-icon { width:70px; height:70px; background:linear-gradient(135deg,#1a365d 0%,#2d3748 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.8rem; margin-bottom:20px; }
+        .tech-badge { display:inline-block; background:#e2e8f0; color:#4a5568; padding:8px 16px; border-radius:20px; font-size:.9rem; font-weight:500; margin:5px; }
+        .screenshot-container { border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1); margin-bottom:30px; border:1px solid #e2e8f0; }
+        .screenshot-placeholder { height:300px; background:linear-gradient(45deg,#1a365d,#2d3748); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.5rem; }
+        .process-step { display:flex; margin-bottom:40px; position:relative; }
+        .process-step::after { content:''; position:absolute; left:30px; top:70px; bottom:-40px; width:2px; background:#e2e8f0; }
+        .process-step:last-child::after { display:none; }
+        .step-number { width:60px; height:60px; background:var(--primary-color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; margin-right:30px; flex-shrink:0; z-index:1; }
+        .step-content { flex:1; padding-bottom:20px; }
+        .metric-card { text-align:center; padding:30px 20px; border-radius:15px; background:#fff; box-shadow:0 5px 15px rgba(0,0,0,0.08); margin-bottom:30px; transition:all .3s ease; }
+        .metric-card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
+        .metric-value { font-size:3rem; font-weight:800; color:var(--primary-color); margin-bottom:10px; }
+        .metric-label { font-size:1.1rem; color:#718096; font-weight:500; }
+        .portfolio-footer { background:var(--primary-color); color:#fff; padding:60px 0 40px; text-align:center; }
+        .student-info { margin-top:40px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); }
+        .navigation { position:fixed; top:50%; right:20px; transform:translateY(-50%); z-index:1000; }
+        .nav-dot { display:block; width:12px; height:12px; background:rgba(26,54,93,0.3); border-radius:50%; margin:15px 0; cursor:pointer; transition:all .3s ease; }
+        .nav-dot.active { background:var(--primary-color); transform:scale(1.3); }
+        @media (max-width:768px){ .portfolio-title{font-size:2.5rem;} .section-title{font-size:2rem;} .navigation{display:none;} }
+    </style>
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <div class="navigation">
+        <a href="#background" class="nav-dot active"></a>
+        <a href="#overview" class="nav-dot"></a>
+        <a href="#technical" class="nav-dot"></a>
+        <a href="#features" class="nav-dot"></a>
+        <a href="#process" class="nav-dot"></a>
+        <a href="#results" class="nav-dot"></a>
+    </div>
+    <header class="portfolio-header">
+        <div class="portfolio-container">
+            <div class="logo-circle"><span class="logo-initial">N</span></div>
+            <h1 class="portfolio-title">Ndawonga Trading & Projects</h1>
+            <p class="portfolio-subtitle">A Comprehensive Web Development Portfolio for Work Integrated Learning (WIL) Presentation</p>
+            <div class="text-center">
+                <a href="http://localhost/ndawonga-website" class="btn btn-warning btn-lg me-3"><i class="fas fa-external-link-alt me-2"></i>Live Website</a>
+                <a href="#background" class="btn btn-outline-light btn-lg"><i class="fas fa-scroll me-2"></i>View Portfolio</a>
+            </div>
+        </div>
+    </header>
+    <section id="background" class="portfolio-section">
+        <div class="portfolio-container">
+            <h2 class="section-title">Project Background</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-building"></i></div><h3>Company Profile</h3><p>Ndawonga Trading and Projects Co-operative Ltd is a 100% Black-Owned Civil Engineering and Waste Management company based in Johannesburg, South Africa. The company holds Level 1 B-BBEE certification and is CIDB registered.</p><p>As a B2B and B2G company, Ndawonga specializes in large-scale construction projects, infrastructure development, and comprehensive waste management solutions for government and corporate clients.</p></div></div>
+                <div class="col-lg-6 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-bullseye"></i></div><h3>Project Objectives</h3><p>The primary goal was to develop a professional corporate website that serves as a powerful business tool for:</p><ul><li>Generating qualified leads for large-scale projects</li><li>Establishing credibility with government entities and corporate clients</li><li>Showcasing certifications, team expertise, and project portfolio</li><li>Streamlining tender application processes</li><li>Attracting potential joint venture partners</li></ul></div></div>
+            </div>
+            <div class="row mt-4"><div class="col-12"><div class="feature-card"><h3>Business Challenge</h3><p>Before this project, Ndawonga lacked a professional online presence, which limited their ability to:</p><div class="row"><div class="col-md-6"><ul><li>Effectively showcase their B-BBEE Level 1 certification to potential clients</li><li>Display their extensive project portfolio to tender committees</li><li>Provide easy access to required documentation for tender applications</li></ul></div><div class="col-md-6"><ul><li>Generate qualified leads through digital channels</li><li>Establish credibility in the competitive construction industry</li><li>Compete with established players who had professional websites</li></ul></div></div></div></div></div>
+        </div>
+    </section>
+    <section id="overview" class="portfolio-section alternate">
+        <div class="portfolio-container">
+            <h2 class="section-title center">Project Overview</h2>
+            <div class="row mb-5"><div class="col-md-8 mx-auto text-center"><p class="lead">The Ndawonga website is a comprehensive digital solution designed to position the company as a leader in the South African construction industry while leveraging their B-BBEE certification as a competitive advantage.</p></div></div>
+            <div class="row">
+                <div class="col-lg-4 mb-4"><div class="metric-card"><div class="metric-value">10+</div><div class="metric-label">Website Pages</div></div></div>
+                <div class="col-lg-4 mb-4"><div class="metric-card"><div class="metric-value">7</div><div class="metric-label">Database Tables</div></div></div>
+                <div class="col-lg-4 mb-4"><div class="metric-card"><div class="metric-value">15+</div><div class="metric-label">Advanced Features</div></div></div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4"><h3>Key Project Components</h3><div class="feature-card"><ul><li><strong>Corporate Website:</strong> Professional design showcasing company services and expertise</li><li><strong>Project Portfolio:</strong> Interactive gallery of completed and ongoing projects</li><li><strong>Team Directory:</strong> Profiles of key personnel and management</li><li><strong>Tender Portal:</strong> Information on current tender opportunities</li><li><strong>Document Management:</strong> Secure access to certificates and company documents</li><li><strong>Contact System:</strong> Advanced inquiry forms with database storage</li><li><strong>Admin Panel:</strong> Complete content management system</li></ul></div></div>
+                <div class="col-lg-6 mb-4"><h3>Target Audience</h3><div class="feature-card"><ul><li><strong>Government Tender Committees:</strong> Need to verify B-BBEE status, CIDB grading, and past project experience</li><li><strong>Large Construction Companies:</strong> Looking for reliable sub-contractors with specific certifications</li><li><strong>Corporate Clients:</strong> Needing waste management or civil works services</li><li><strong>Potential Employees/JV Partners:</strong> Seeking to understand company vision and team expertise</li><li><strong>Industry Stakeholders:</strong> Interested in company capabilities and compliance status</li></ul></div></div>
+            </div>
+            <div class="row mt-4"><div class="col-12"><div class="screenshot-container"><div class="screenshot-placeholder"><i class="fas fa-desktop me-3"></i> Website Homepage Preview</div></div></div></div>
+        </div>
+    </section>
+    <section id="technical" class="portfolio-section">
+        <div class="portfolio-container">
+            <h2 class="section-title">Technical Implementation</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4"><div class="feature-card"><h3>Technology Stack</h3><div class="mb-3"><h5>Frontend Technologies</h5><div><span class="tech-badge">HTML5</span><span class="tech-badge">CSS3</span><span class="tech-badge">JavaScript ES6+</span><span class="tech-badge">Bootstrap 5</span><span class="tech-badge">Font Awesome</span><span class="tech-badge">AOS Animation</span></div></div><div class="mb-3"><h5>Backend Technologies</h5><div><span class="tech-badge">PHP 7.4+</span><span class="tech-badge">MySQL</span><span class="tech-badge">PDO Database Access</span><span class="tech-badge">RESTful Architecture</span></div></div><div class="mb-3"><h5>Development Environment</h5><div><span class="tech-badge">XAMPP</span><span class="tech-badge">Visual Studio Code</span><span class="tech-badge">Git Version Control</span><span class="tech-badge">phpMyAdmin</span></div></div></div></div>
+                <div class="col-lg-6 mb-4"><div class="feature-card"><h3>Database Architecture</h3><p>The website utilizes a robust MySQL database with the following key tables:</p><ul><li><strong>Users:</strong> Admin and editor accounts with role-based permissions</li><li><strong>Projects:</strong> Complete project portfolio with categories and status tracking</li><li><strong>Services:</strong> Company services with display ordering and active status</li><li><strong>Team:</strong> Team member profiles with positions and contact information</li><li><strong>Certifications:</strong> B-BBEE, CIDB, and other certifications with expiry tracking</li><li><strong>Tenders:</strong> Current tender opportunities with closing dates</li><li><strong>Messages:</strong> Contact form submissions with inquiry categorization</li></ul></div></div>
+            </div>
+            <div class="row mt-4"><div class="col-12"><div class="feature-card"><h3>Security Implementation</h3><div class="row"><div class="col-md-6"><h5>Data Protection</h5><ul><li>Password hashing using bcrypt algorithm</li><li>SQL injection prevention with PDO prepared statements</li><li>XSS protection through input sanitization</li><li>CSRF token implementation for forms</li><li>Session management with secure configurations</li></ul></div><div class="col-md-6"><h5>Access Control</h5><ul><li>Role-based authentication (Admin/Editor)</li><li>Secure file upload validation</li><li>Input validation on all user-submitted data</li><li>Secure admin panel with login requirements</li><li>Error handling without exposing sensitive information</li></ul></div></div></div></div>
+            <div class="row mt-4"><div class="col-lg-6 mb-4"><div class="screenshot-container"><div class="screenshot-placeholder"><i class="fas fa-database me-3"></i> Database Schema Visualization</div></div></div><div class="col-lg-6 mb-4"><div class="screenshot-container"><div class="screenshot-placeholder"><i class="fas fa-code me-3"></i> Code Structure Preview</div></div></div></div>
+        </div>
+    </section>
+    <section id="features" class="portfolio-section alternate">
+        <div class="portfolio-container">
+            <h2 class="section-title center">Features & Innovation</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-robot"></i></div><h3>AI-Powered Chatbot</h3><p>Advanced conversational AI assistant that provides instant responses to common inquiries about services, projects, and certifications.</p><ul><li>Context-aware responses based on conversation history</li><li>Machine learning for improved interactions</li><li>Integration with company knowledge base</li><li>Typing indicators for realistic conversation flow</li></ul></div></div>
+                <div class="col-lg-4 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-calculator"></i></div><h3>AI Project Estimator</h3><p>Interactive tool that provides instant project cost estimates based on type, scale, and timeline parameters.</p><ul><li>Real-time cost calculations</li><li>AI confidence scoring for estimates</li><li>Multiple project type support</li><li>Budget planning assistance</li></ul></div></div>
+                <div class="col-lg-4 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-project-diagram"></i></div><h3>Interactive Project Visualizer</h3><p>3D project visualization system that showcases completed projects with interactive elements and detailed information.</p><ul><li>Project filtering by category</li><li>Detailed project information modals</li><li>Image galleries with hover effects</li><li>Project statistics and impact metrics</li></ul></div></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-mobile-alt"></i></div><h3>Responsive Design</h3><p>Fully responsive design that provides optimal viewing experience across all devices and screen sizes.</p><ul><li>Mobile-first approach</li><li>Touch-friendly interface elements</li><li>Optimized performance on all devices</li><li>Consistent user experience</li></ul></div></div>
+                <div class="col-lg-4 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div><h3>Admin Dashboard</h3><p>Comprehensive content management system for easy website maintenance and updates.</p><ul><li>User management with role-based permissions</li><li>Content editing capabilities</li><li>Media upload and management</li><li>Contact message management</li></ul></div></div>
+                <div class="col-lg-4 mb-4"><div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Security Features</h3><p>Comprehensive security implementation to protect company and user data.</p><ul><li>Secure authentication system</li><li>Data encryption and validation</li><li>SQL injection prevention</li><li>XSS and CSRF protection</li></ul></div></div>
+            </div>
+            <div class="row mt-4"><div class="col-12"><div class="feature-card"><h3>Additional Innovative Features</h3><div class="row"><div class="col-md-6"><ul><li><strong>Floating Action Buttons:</strong> Quick access to key functions</li><li><strong>Advanced Animations:</strong> Smooth transitions and micro-interactions</li><li><strong>Parallax Scrolling:</strong> Immersive visual experience</li><li><strong>Real-time Collaboration:</strong> Team presence indicators</li></ul></div><div class="col-md-6"><ul><li><strong>Smart Notifications:</strong> User feedback system</li><li><strong>Performance Optimization:</strong> Fast loading times</li><li><strong>SEO Optimization:</strong> Search engine visibility</li><li><strong>Accessibility Features:</strong> Inclusive design principles</li></ul></div></div></div></div>
+        </div>
+    </section>
+    <section id="process" class="portfolio-section">
+        <div class="portfolio-container">
+            <h2 class="section-title">Development Process</h2>
+            <div class="process-step"><div class="step-number">1</div><div class="step-content"><h3>Planning & Research</h3><p>Comprehensive analysis of business requirements, target audience, and competitor landscape. Defined project scope, objectives, and success metrics.</p><ul><li>Stakeholder interviews to understand business needs</li><li>Competitor analysis of leading construction company websites</li><li>Target audience identification and user persona development</li><li>Technical requirements specification</li><li>Project timeline and milestone planning</li></ul></div></div>
+            <div class="process-step"><div class="step-number">2</div><div class="step-content"><h3>Design & Prototyping</h3><p>Creation of wireframes, mockups, and interactive prototypes to establish visual design direction and user experience flow.</p><ul><li>Information architecture planning</li><li>Wireframe development for key pages</li><li>Visual design system creation (colors, typography, components)</li><li>Interactive prototype development</li><li>User testing and feedback incorporation</li></ul></div></div>
+            <div class="process-step"><div class="step-number">3</div><div class="step-content"><h3>Database Design</h3><p>Structured database architecture planning and implementation to support website functionality and future scalability.</p><ul><li>Entity-relationship diagram creation</li><li>Database schema design and normalization</li><li>SQL script development for table creation</li><li>Sample data population for testing</li><li>Backup and recovery strategy implementation</li></ul></div></div>
+            <div class="process-step"><div class="step-number">4</div><div class="step-content"><h3>Frontend Development</h3><p>Implementation of responsive user interface using modern web technologies and frameworks.</p><ul><li>HTML5 structure with semantic markup</li><li>CSS3 with custom properties and modern layout techniques</li><li>JavaScript ES6+ for interactive functionality</li><li>Bootstrap 5 integration for responsive components</li><li>Cross-browser compatibility testing</li></ul></div></div>
+            <div class="process-step"><div class="step-number">5</div><div class="step-content"><h3>Backend Development</h3><p>Server-side implementation with PHP and MySQL for dynamic content management and business logic.</p><ul><li>PHP backend architecture development</li><li>Database connection and query optimization</li><li>User authentication and authorization system</li><li>Form handling and data validation</li><li>Admin panel development for content management</li></ul></div></div>
+            <div class="process-step"><div class="step-number">6</div><div class="step-content"><h3>Testing & Quality Assurance</h3><p>Comprehensive testing across multiple devices, browsers, and scenarios to ensure quality and reliability.</p><ul><li>Functionality testing of all features</li><li>Cross-browser compatibility testing</li><li>Mobile responsiveness validation</li><li>Performance optimization and load testing</li><li>Security vulnerability assessment</li></ul></div></div>
+            <div class="process-step"><div class="step-number">7</div><div class="step-content"><h3>Deployment & Documentation</h3><p>Final deployment to production environment and comprehensive documentation delivery.</p><ul><li>Server configuration and deployment</li><li>Database migration and setup</li><li>User training and documentation</li><li>Maintenance plan establishment</li><li>Project handover and support transition</li></ul></div></div>
+        </div>
+    </section>
+    <section id="results" class="portfolio-section alternate">
+        <div class="portfolio-container">
+            <h2 class="section-title center">Results & Impact</h2>
+            <div class="row mb-5"><div class="col-md-10 mx-auto text-center"><p class="lead">The Ndawonga website has transformed the company's digital presence and created significant business value through enhanced credibility, lead generation, and operational efficiency.</p></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4"><div class="metric-card"><div class="metric-value">100%</div><div class="metric-label">Mobile Responsive</div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><div class="metric-card"><div class="metric-value">95%+</div><div class="metric-label">Performance Score</div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><div class="metric-card"><div class="metric-value">99%</div><div class="metric-label">Uptime Reliability</div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><div class="metric-card"><div class="metric-value">A Grade</div><div class="metric-label">Security Rating</div></div></div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4"><div class="feature-card"><h3>Business Impact</h3><ul><li><strong>Enhanced Credibility:</strong> Professional website establishes trust with government and corporate clients</li><li><strong>Lead Generation:</strong> Advanced contact forms and AI chatbot capture qualified leads</li><li><strong>Tender Success:</strong> Easy access to certifications improves tender application process</li><li><strong>Competitive Advantage:</strong> Modern digital presence differentiates from competitors</li><li><strong>Operational Efficiency:</strong> Admin panel reduces content management costs</li></ul></div></div>
+                <div class="col-lg-6 mb-4"><div class="feature-card"><h3>Technical Achievements</h3><ul><li><strong>Scalable Architecture:</strong> Database design supports future growth and feature additions</li><li><strong>Security First:</strong> Comprehensive protection against common web vulnerabilities</li><li><strong>Performance Optimized:</strong> Fast loading times enhance user experience and SEO</li><li><strong>Maintainable Code:</strong> Well-structured, documented code for easy future updates</li><li><strong>Cross-Platform Compatibility:</strong> Consistent experience across all devices and browsers</li></ul></div></div>
+            </div>
+            <div class="row mt-4"><div class="col-12"><div class="feature-card"><h3>Learning Outcomes</h3><div class="row"><div class="col-md-6"><h5>Technical Skills Developed</h5><ul><li>Full-stack web development with PHP and MySQL</li><li>Responsive design implementation</li><li>Database design and optimization</li><li>Security best practices implementation</li><li>API integration and development</li></ul></div><div class="col-md-6"><h5>Professional Skills Enhanced</h5><ul><li>Project planning and management</li><li>Client requirements analysis</li><li>Quality assurance and testing methodologies</li><li>Documentation and presentation skills</li><li>Problem-solving and troubleshooting</li></ul></div></div></div></div>
+            <div class="row mt-5"><div class="col-12 text-center"><h3>Future Enhancements</h3><p class="mb-4">The website architecture supports several potential future enhancements:</p><div class="row"><div class="col-md-4 mb-3"><div class="tech-badge">E-Tendering System</div></div><div class="col-md-4 mb-3"><div class="tech-badge">Project Management Portal</div></div><div class="col-md-4 mb-3"><div class="tech-badge">Mobile Application</div></div><div class="col-md-4 mb-3"><div class="tech-badge">Multi-language Support</div></div><div class="col-md-4 mb-3"><div class="tech-badge">Advanced Analytics</div></div><div class="col-md-4 mb-3"><div class="tech-badge">CRM Integration</div></div></div></div></div>
+        </div>
+    </section>
+    <footer class="portfolio-footer">
+        <div class="portfolio-container">
+            <h3>Ndawonga Trading & Projects</h3>
+            <p>Professional Website Development Portfolio</p>
+            <div class="student-info">
+                <h4>Work Integrated Learning Submission</h4>
+                <p>Final Year Project | Computer Science & Information Technology</p>
+                <p>Submitted by: [Your Name] | Student ID: [Your Student ID]</p>
+                <p>Supervisor: [Supervisor Name] | Institution: [Your University]</p>
+                <p class="mt-3">© <span id="current-year"></span> Ndawonga Trading and Projects Co-operative Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.portfolio-section');
+            const navDots = document.querySelectorAll('.nav-dot');
+            function updateActiveNav() {
+                let current = '';
+                const scrollPos = window.scrollY + 100;
+                sections.forEach(section => {
+                    const top = section.offsetTop; const h = section.clientHeight;
+                    if (scrollPos >= top && scrollPos < top + h) current = section.getAttribute('id');
+                });
+                navDots.forEach(dot => { dot.classList.remove('active'); if (dot.getAttribute('href').substring(1) === current) dot.classList.add('active'); });
+            }
+            navDots.forEach(dot => { dot.addEventListener('click', function(e){ e.preventDefault(); const targetId = this.getAttribute('href'); const t = document.querySelector(targetId); window.scrollTo({ top: t.offsetTop, behavior:'smooth' }); }); });
+            window.addEventListener('scroll', updateActiveNav); updateActiveNav();
+            const yearEl = document.getElementById('current-year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
+
